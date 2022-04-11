@@ -1,0 +1,15 @@
+.carousel{
+  max-width: 1260px;
+  height: 450px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 40px;
+}
+
+.carousel ul{
+  list-style: none;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(158, 82, 82) !important;
+}
