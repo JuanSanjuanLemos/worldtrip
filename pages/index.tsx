@@ -1,11 +1,10 @@
-import type { NextPage } from 'next';
 import { Header } from '../src/components/Header';
 import { Banner } from '../src/components/Banner';
 import { SectionTypes } from '../src/components/SectionTypes/SectionTypes';
 import { CallToAction } from '../src/components/CallToAction';
-import { Carousel } from '../src/components/Carousel/Carousel';
+import { Carousel } from '../src/components/CarouselFiles/Carousel';
 
-const Home: NextPage = () => {
+export default function Home(){
   return (
     <>
       <Header />
@@ -16,5 +15,3 @@ const Home: NextPage = () => {
     </>
   )
 }
-
-export default Home

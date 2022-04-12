@@ -1,46 +1,35 @@
 import { Container, Img, Text } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+
 import SwiperCore, { Navigation, Pagination } from "swiper";
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import styles from "./style.module.css";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import { makeServer } from "../../services/miragejs";
+import { api } from "../../services/api";
+
+interface Continent{
+  name:string;
+  url:string;
+  description:string;
+}
+
+makeServer();
 
 SwiperCore.use([Navigation, Pagination]);
 
 export function Carousel() {
-  const slides: ReactNode[] = [];
-  const listContinents = [
-    {
-      url: "/continent-europe.png",
-      name: "Europa",
-      description: "O continente mais antigo."
-    },
-    {
-      url: "/continent-south-america.png",
-      name: "América do Sul",
-      description: "O continente Tropical."
-    },
-    {
-      url: "/continent-north-america.png",
-      name: "América do Norte",
-      description: "It's America."
-    },
-    {
-      url: "/continent-oceania.png",
-      name: "Oceania",
-      description: "A melhor qualidade de vida."
-    },
-    {
-      url: "/continent-asia.png",
-      name: "Ásia",
-      description: "A primavera mais bonita do mundo"
-    },
-  ];
-
+  const [listContinents,setListContinents] = useState<Continent[]>([]);
+  const slides:ReactNode[] =[];
+  useEffect(() =>{
+    api.get('/continentsData')
+    .then(response => setListContinents(response.data))
+  },[])
   listContinents.map(continent => {
     slides.push(
       <SwiperSlide key={`slide-${continent.name}`} tag="li">
