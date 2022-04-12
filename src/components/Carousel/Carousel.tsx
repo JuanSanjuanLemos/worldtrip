@@ -46,8 +46,8 @@ export function Carousel() {
       <SwiperSlide key={`slide-${continent.name}`} tag="li">
         <Img src={continent.url} w="100%" h="100%" objectFit="cover" />
         <Container top='50%' left='50%' transform='translateY(-50%) translateX(-50%)' position='absolute' textAlign='center'>
-          <Text as='h1' fontSize='48px' fontWeight='bold' color='gray.50' lineHeight='72px'>{continent.name}</Text>
-          <Text as='h2' fontSize='24px' fontWeight='bold' color='gray.100' lineHeight='36px'>{continent.description}</Text>
+          <Text as='h1' fontSize={["24px", "32px","48px"]} fontWeight='bold' color='gray.50' lineHeight={1.5}>{continent.name}</Text>
+          <Text as='h2' fontSize={["14px", "18px", "24px"]} fontWeight='bold' color='gray.100' lineHeight={1.5}>{continent.description}</Text>
         </Container>
       </SwiperSlide>
     );
