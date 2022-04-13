@@ -14,11 +14,11 @@ export function SectionTypes() {
       gap={["70px", "120", "151px"]}
       mt="100px"
     >
-      <Type imgUrl="/cocktail.png" title="vida noturna" />
-      <Type imgUrl="/surf.png" title="praia" />
-      <Type imgUrl="/building.png" title="moderno" />
-      <Type imgUrl="/museum.png" title="clássico" />
-      <Type imgUrl="/earth.png" title="e mais..." />
+      <Type imgUrl="/images/cocktail.svg" title="vida noturna" />
+      <Type imgUrl="/images/surf.svg" title="praia" />
+      <Type imgUrl="/images/building.svg" title="moderno" />
+      <Type imgUrl="/images/museum.svg" title="clássico" />
+      <Type imgUrl="/images/earth.svg" title="e mais..." />
     </List>
   );
 }

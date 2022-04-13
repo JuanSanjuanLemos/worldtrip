@@ -9,7 +9,7 @@ export function Banner() {
     <Flex
       width="100%"
       px={["4", "8"]}
-      bgImg="/background.png"
+      bgImg="/images/background.png"
       bgSize='cover'
       bgRepeat="no-repeat"
       justify="space-between"
@@ -42,7 +42,7 @@ export function Banner() {
             Chegou a hora de tirar do papel a viagem que você sempre sonhou.
           </Text>
         </Flex>
-        {isWideVersion && <Img src="/Airplane.png" transform="translateY(40px)" />}
+        {isWideVersion && <Img src="/images/airplane.png" transform="translateY(40px)" />}
       </Box>
     </Flex>
   );
