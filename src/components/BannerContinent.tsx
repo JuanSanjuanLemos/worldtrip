@@ -1,19 +1,29 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
-import { useEffect, useState } from "react";
-import { useListContinents } from "../contexts/listContinentsContext";
-
-interface BannerContinentProps{
-  continentName:string;
+interface BannerContinentProps {
+  continentName: string;
   bannerUrl: string;
 }
 
-export function BannerContinent({continentName, bannerUrl}:BannerContinentProps){
-  return(
-    <Box bgImg={bannerUrl} height={500} w="100%">
-      <Text as='h1'>
+export function BannerContinent({
+  continentName,
+  bannerUrl,
+}: BannerContinentProps) {
+  return (
+    <Flex
+      bgImg={bannerUrl}
+      bgSize="cover"
+      bgRepeat="no-repeat"
+      height={[150, 300, 400, 500]}
+      maxW={1440}
+      margin="auto"
+      alignItems={['center', 'flex-end']}
+      justify={['center', 'center', 'flex-start']}
+      padding={["0", "0", "30"]}
+    >
+      <Text as="h1" fontSize={[28,36,48]} color="gray.50" fontWeight="semibold">
         {continentName}
       </Text>
-    </Box>
-  )
+    </Flex>
+  );
 }

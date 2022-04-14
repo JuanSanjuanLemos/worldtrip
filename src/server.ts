@@ -1,9 +1,7 @@
 import { createServer, Model } from "miragejs";
 
-export function makeServer({ environment = "test" } = {}) {
+export function makeServer() {
   return createServer({
-    environment,
-
     models: {
       continent: Model,
     },
@@ -707,7 +705,6 @@ export function makeServer({ environment = "test" } = {}) {
       this.get("/continents")
 
       this.get("/continents/:id")
-
 
       this.passthrough((request) => {
         if (request.url === "/_next/static/development/_devPagesManifest.json") return true;

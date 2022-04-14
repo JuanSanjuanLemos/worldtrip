@@ -18,9 +18,8 @@ interface ListContinentsProviderProps{
   children: ReactNode
 }
 
-if (process.env.NODE_ENV === "development") {
-  makeServer({environment: "development"})
-}
+makeServer()
+
 
 const ListContinentsContext = createContext<Continent[]>([]);
 

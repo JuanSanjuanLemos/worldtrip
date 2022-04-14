@@ -7,7 +7,8 @@ export function Banner() {
   });
   return (
     <Flex
-      width="100%"
+      maxW={1440}
+      margin='auto'
       px={["4", "8"]}
       bgImg="/images/background.png"
       bgSize='cover'
