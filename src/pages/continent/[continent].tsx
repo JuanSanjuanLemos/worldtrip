@@ -6,7 +6,8 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { AboutContinent } from "../../components/AboutContinent";
-import { Text } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import CityCard from "../../components/CityCard";
 
 type CityProps = {
   name: string;
@@ -30,7 +31,7 @@ export default function Continent() {
   const [continentContent, setContinentContent] = useState<ContinentProps>(
     {} as ContinentProps
   );
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
   const router = useRouter();
   const { continent } = router.query;
 
@@ -63,11 +64,25 @@ export default function Continent() {
             countries={continentContent.countries}
             langagues={continentContent.langagues}
           />
+          <Box as="section" maxWidth={1190} marginX='auto' mb='35px' px={["4", "8"]} >
+            <Text color='gray.900' fontSize={[36]} lineHeight={['54px']} mb='40px' fontWeight='medium'>Cidades +100</Text>
+            <SimpleGrid columns={[1,2,2,3,4]} spacing={10}>
+              {continentContent.mostVisitedCities.map((city) => {
+                return (
+                  <CityCard
+                    name={city.name}
+                    cityImageUrl={city.cityImageUrl}
+                    country={city.country}
+                    countryFlagUrl={city.countryFlagUrl}
+                  />
+                );
+              })}
+            </SimpleGrid>
+          </Box>
         </>
-        )
-        :
+      ) : (
         <Text>Carregando...</Text>
-    }
+      )}
     </>
   );
 }

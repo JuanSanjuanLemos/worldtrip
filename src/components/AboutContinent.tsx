@@ -25,8 +25,8 @@ export function AboutContinent({
       gap="70px"
       flex='1'
     >
-      <Text flex='1' maxW={600} textAlign='justify' fontSize={["14px", "16px"]} minWidth={300} margin='auto'>{description}</Text>
-      <Flex flex='1' w='100%' maxW={470} gap='3' justify="space-between" margin='auto'>
+      <Text flex='1' maxW={600} textAlign='justify' fontSize={["14px", "16px"]} minWidth={300}  margin='auto'>{description}</Text>
+      <Flex flex='1' w='100%' maxW={490} gap='3' justify="space-between" margin='auto'>
         <BoxData value={countries} text="países" />
         <BoxData value={langagues} text="línguas" />
         <BoxData value={mostVisitedCities} text="cidades +100" />

@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, Text, WrapItem } from "@chakra-ui/react";
 
 interface BannerContinentProps {
   continentName: string;
@@ -17,13 +17,27 @@ export function BannerContinent({
       height={[150, 300, 400, 500]}
       maxW={1440}
       margin="auto"
-      alignItems={['center', 'flex-end']}
-      justify={['center', 'center', 'flex-start']}
-      padding={["0", "0", "30"]}
+      alignItems={["center", "flex-end"]}
+      justify={["center", "center", "flex-start"]}
+      px={["4", "8"]}
     >
-      <Text as="h1" fontSize={[28,36,48]} color="gray.50" fontWeight="semibold">
-        {continentName}
-      </Text>
+      <Box
+        flex="1"
+        maxW={1160}
+        px={["4", "8"]}
+        marginX="auto"
+        textAlign="left"
+        mb={[0, '60px']}
+      >
+        <Text
+          as="h1"
+          fontSize={[28, 36, 48]}
+          color="gray.50"
+          fontWeight="semibold"
+        >
+          {continentName}
+        </Text>
+      </Box>
     </Flex>
   );
 }
