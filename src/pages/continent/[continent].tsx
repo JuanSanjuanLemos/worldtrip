@@ -51,7 +51,7 @@ export default function Continent() {
       <Head>
         <title>WorldTrip | {continentContent.name}</title>
       </Head>
-      <Header />
+      <Header isContinentPage={true} />
       {isLoaded ? (
         <>
           <BannerContinent

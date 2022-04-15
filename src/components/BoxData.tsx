@@ -37,7 +37,7 @@ export function BoxData({ value, text, is100 }: BoxDataProps) {
         {is100 && isWideVersion &&(
           <Tooltip label={`Esse continente possui ${value} cidades do top 100 cidades mais
           visitadas do mundo!`}>
-          <WarningIcon outlineColor='gray.100' fontSize={[14,18]} color='gray.100'/>
+          <WarningIcon outlineColor='gray.100' fontSize={[14,18]} color='gray.100' cursor='pointer' />
           </Tooltip>
         )
         }
