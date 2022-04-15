@@ -1,8 +1,9 @@
-import { Container, Img, Text, Link as ChakraLink } from "@chakra-ui/react";
+import Link from "next/link";
+import { Container, Img, Text} from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay, Mousewheel, Keyboard } from "swiper";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -10,9 +11,6 @@ import "swiper/css/pagination";
 
 import styles from "./style.module.css";
 import { ReactNode } from "react";
-import { useListContinents } from "../../contexts/listContinentsContext";
-import Link from "next/link";
-
 
 type Continent = {
   id: string;
@@ -23,18 +21,17 @@ type Continent = {
 }
 
 type CarouselProps = {
-  continents: Continent[]
+  listContinents: Continent[]
 }
 
 SwiperCore.use([Navigation, Pagination]);
 
-export function Carousel() {
+export function Carousel({listContinents}:CarouselProps) {
   const slides:ReactNode[] =[];
-  const listContinents = useListContinents();
   listContinents.map(continent => {
     slides.push(
       <SwiperSlide key={`slide-${continent.name}`} tag="li">
-        <Link href={`/continent/${continent.link}`} >
+        <Link href={`/continent/${continent.link}`} passHref>
           <a>
             <Img src={continent.carouselUrl} alt={continent.name} w="100%" h="100%" objectFit="cover" />
             <Container top='50%' left='50%' transform='translateY(-50%) translateX(-50%)' position='absolute' textAlign='center'>
@@ -58,8 +55,9 @@ export function Carousel() {
       color='yellow'
       loop={true}
       mousewheel={true}
+      keyboard={true}
       autoplay= {true}
-      modules= {[Autoplay]}
+      modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
     >
       {slides}
     </Swiper>

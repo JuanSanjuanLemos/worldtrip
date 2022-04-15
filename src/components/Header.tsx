@@ -9,7 +9,7 @@ export function Header({isContinentPage}:HeaderProps){
   return(
     <Flex as='header' alignItems='center' justify='center' py='6' maxW={1440} margin='auto' position='relative'>
       {isContinentPage && (
-        <Link href='/' >
+        <Link href='/' passHref >
           <Img src="/images/back-button.png" marginRight='auto' position='absolute' right="90%" cursor='pointer' />
         </Link>
       )}

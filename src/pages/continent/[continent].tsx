@@ -36,20 +36,24 @@ export default function Continent() {
   const { continent } = router.query;
 
   const getContinent = async () => {
-    const response = await api.get(`/continents/${continent}`);
-    const data = await response.data.continent;
-
-    setIsLoaded(!isLoaded);
-    setContinentContent(data);
+    if(continent !== undefined){
+      const response = await api.get(`/continents/${continent}`);
+      const data = await response.data.continent;
+      setContinentContent(data);
+      setIsLoaded(true)
+    }else{
+      setIsLoaded(false);
+    }
+    
   };
 
   useEffect(() => {
     getContinent();
-  }, []);
+  }, [continent]);
   return (
     <>
       <Head>
-        <title>WorldTrip | {continentContent.name}</title>
+        <title>WorldTrip | {isLoaded ? continentContent.name : ''}</title>
       </Head>
       <Header isContinentPage={true} />
       {isLoaded ? (
@@ -89,23 +93,3 @@ export default function Continent() {
     </>
   );
 }
-
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { continent: "europe" } },
-      { params: { continent: "northamerica" } },
-      { params: { continent: "southamerica" } },
-      { params: { continent: "asia" } },
-      { params: { continent: "oceania" } },
-      { params: { continent: "africa" } },
-    ],
-    fallback: true,
-  };
-}
-
-export const getStaticProps: GetStaticProps = async function (context) {
-  return {
-    props: {}, // will be passed to the page component as props
-  };
-};
