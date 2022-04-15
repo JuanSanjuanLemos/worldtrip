@@ -74,6 +74,7 @@ export default function Continent() {
                     cityImageUrl={city.cityImageUrl}
                     country={city.country}
                     countryFlagUrl={city.countryFlagUrl}
+                    key={city.name}
                   />
                 );
               })}
