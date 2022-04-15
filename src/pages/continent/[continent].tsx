@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { AboutContinent } from "../../components/AboutContinent";
-import { Box, Flex, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, SimpleGrid, Spinner, Text } from "@chakra-ui/react";
 import CityCard from "../../components/CityCard";
 
 type CityProps = {
@@ -82,7 +82,9 @@ export default function Continent() {
           </Box>
         </>
       ) : (
-        <Text>Carregando...</Text>
+        <Flex  justifyContent='center'>
+          <Spinner size='xl' />
+        </Flex>
       )}
     </>
   );

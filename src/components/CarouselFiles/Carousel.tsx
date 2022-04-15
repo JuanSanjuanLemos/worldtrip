@@ -34,7 +34,7 @@ export function Carousel() {
   listContinents.map(continent => {
     slides.push(
       <SwiperSlide key={`slide-${continent.name}`} tag="li">
-        <Link href={`/continent/${continent.link}`}>
+        <Link href={`/continent/${continent.link}`} >
           <a>
             <Img src={continent.carouselUrl} alt={continent.name} w="100%" h="100%" objectFit="cover" />
             <Container top='50%' left='50%' transform='translateY(-50%) translateX(-50%)' position='absolute' textAlign='center'>
